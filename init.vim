@@ -16,6 +16,9 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'antonyz89/electron-vue.nvim'
+Plug 'ivanlhz/vim-electron'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
 
 let g:mucomplete#enable_auto_at_startup = 1
@@ -64,14 +67,16 @@ hi foldcolumn guibg=bg
 hi VertSplit guibg=#302d38 guifg=#302d38
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
 syntax on
-colorscheme tokyonight-moon
+colorscheme catppuccin-macchiato
+let g:catppuccino_style = 'dark'
 set guicursor=
 
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-i> :NERDTree<CR>
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+nnoremap <C-R> :split term://pwsh<CR> 
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-
-
-
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+tnoremap <Esc> <C-\><C-n>
