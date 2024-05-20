@@ -16,11 +16,9 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'autozimu/LanguageClient-neovim', {
-			\ 'branch': 'next',
-			\ 'do': 'bash install.sh',
-			\ }
-
+Plug 'antonyz89/electron-vue.nvim'
+Plug 'ivanlhz/vim-electron'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
 
 let g:mucomplete#enable_auto_at_startup = 1
@@ -43,6 +41,24 @@ let g:AirlineTheme='desu'
 
 
 set noshowmode
+set number relativenumber
+set nu rnu
+set encoding=utf-8
+set ignorecase
+set hidden
+set backspace=indent,eol,start
+set virtualedit=all
+set nocompatible
+set laststatus=2
+set splitbelow splitright
+set foldmethod=manual
+set showmatch
+set wildmenu
+set nohlsearch
+set cursorline
+highlight CursorLine guibg=lightblue ctermbg=lightgray
+
+
 
 hi EndOfBuffer guifg=bg guibg=bg
 hi LineNr guibg=bg
@@ -51,14 +67,16 @@ hi foldcolumn guibg=bg
 hi VertSplit guibg=#302d38 guifg=#302d38
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
 syntax on
-colorscheme tokyonight-moon
+colorscheme catppuccin-macchiato
+let g:catppuccino_style = 'dark'
 set guicursor=
 
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-i> :NERDTree<CR>
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+nnoremap <C-R> :split term://pwsh<CR> 
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-
-
-
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+tnoremap <Esc> <C-\><C-n>
